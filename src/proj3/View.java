@@ -24,8 +24,10 @@
  */
 package proj3;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -95,6 +97,13 @@ public class View extends JFrame implements ActionListener {
         // Make this View the action listener for the button
         // Add the button to the panel
         //TODO ENTER CODE HERE
+		JPanel panelSearch = new JPanel(setLayout(new FlowLayout());
+		panelSearch.add(new JLabel("Student Name"));
+		panelSearch.add(mStudentName(25));
+		mSearchButton("Search");
+		mSearchButton.addActionListener(this);
+		panelSearch.add(mSearchButton);
+
 
         // PSEUDOCODE:
         // Create a JPanel named panelHomework which uses the FlowLayout
@@ -106,6 +115,14 @@ public class View extends JFrame implements ActionListener {
         // End For
         // Note: DO NOT HARDCODE THE NUMBER OF HOMEWORK ASSIGNMENTS
         //TODO ENTER CODE HERE
+		JPanel panelHomework = new JPanel(setLayout(new FlowLayout()));
+		panelHomework.add(new JLabel("Homework"));
+		ArrayList<JTextField> mHomeworkText = new ArrayList<JTextField>();
+		for(int i = 0; i < mHomeworkText.size(); i++){
+			JTextField mHomeworkText = new JTextField(5);
+			panelHomework.add(mHomeworkText[i]);
+		}
+		//JTextField mHomeworkText = new JTextField(5);
 
         // Create the exam panel which contains the "Exam: " label and the two exam text fields.
         // The pseudocode is omitted because this code is very similar to the code that creates the
