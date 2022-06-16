@@ -2,8 +2,8 @@
  * CLASS: GradebookReader (GradebookReader.java)
  *
  * DESCRIPTION:
- * TODO INSERT DESCRIPTION HERE
- * 
+ * Reads gradebook information from filename passed as a parameter, allowing program
+ * to generate a Roster of Students with given Homework and Exam scores. 
  *
  * COURSE AND PROJECT INFO
  * CSE205 Object Oriented Programming and Data Structures, Summer 2022 C-Session
@@ -30,11 +30,11 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * GradebookReader() reads the gradebook info from the file whose name is passed to the ctor.
- * Once the input file has been read, it will return a Roster object containing the list of
- * Students in the course.
+ * GradebookReader() reads the gradebook info from the file whose name is passed
+ * to the ctor. Once the input file has been read, it will return a Roster
+ * object containing the list of Students in the course.
  */
-public class GradebookReader  {
+public class GradebookReader {
 
     /**
      * mIn is used to read from the input file.
@@ -42,16 +42,17 @@ public class GradebookReader  {
     private Scanner mIn;
 
     /**
-     * Attempts to open the gradebook file for reading. If successful, mIn will be used to read
-     * from the file. If the file cannot be opened, a FileNotFoundException will be thrown.
+     * Attempts to open the gradebook file for reading. If successful, mIn will be
+     * used to read from the file. If the file cannot be opened, a
+     * FileNotFoundException will be thrown.
      *
-     * Note that this  method does not actually read the information from the file. That is done
-     * lated when readRoster() is called from Main.run().
+     * Note that this method does not actually read the information from the file.
+     * That is done lated when readRoster() is called from Main.run().
      *
      * @throws FileNotFoundException
      *
-     * @param pFname The name of the file to be opened for reading. For this project it will be
-     *               "gradebook.dat"
+     * @param pFname The name of the file to be opened for reading. For this project
+     *               it will be "gradebook.dat"
      */
     public GradebookReader(String pFname) throws FileNotFoundException {
         mIn = new Scanner(new File(pFname));
@@ -60,10 +61,11 @@ public class GradebookReader  {
     /**
      * Reads the exam scores for a Student.
      *
-     * The number of exams is retrieved by calling the static getNumExams() method in Main.
+     * The number of exams is retrieved by calling the static getNumExams() method
+     * in Main.
      *
-     * @param pStudent The student for whom we are going to read the exam scores from the input
-     *                 file.
+     * @param pStudent The student for whom we are going to read the exam scores
+     *                 from the input file.
      */
     private void readExam(Student pStudent) {
         for (int n = 0; n < Main.getNumExams(); ++n) {
@@ -72,8 +74,8 @@ public class GradebookReader  {
     }
 
     /**
-     * Called to read the gradebook information. Calls readRoster() to read the student records and
-     * then sorts the roster by last name.
+     * Called to read the gradebook information. Calls readRoster() to read the
+     * student records and then sorts the roster by last name.
      *
      * Called from Main.run().
      *
@@ -88,11 +90,11 @@ public class GradebookReader  {
     /**
      * Reads the homework scores for a Student.
      *
-     * The number of homework assignments is retrieved by calling the static getNumHomeworks()
-     * method in Main.
+     * The number of homework assignments is retrieved by calling the static
+     * getNumHomeworks() method in Main.
      *
-     * @param pStudent The student for whom we are going to read the homework scores from the input
-     *                 file.
+     * @param pStudent The student for whom we are going to read the homework scores
+     *                 from the input file.
      */
     private void readHomework(Student pStudent) {
         for (int n = 0; n < Main.getNumHomeworks(); ++n) {
@@ -101,8 +103,8 @@ public class GradebookReader  {
     }
 
     /**
-     * Reads the student information for each student in the input file, adding each student to
-     * the roster.
+     * Reads the student information for each student in the input file, adding each
+     * student to the roster.
      *
      * Called from readGradebook().
      *

@@ -2,8 +2,8 @@
  * CLASS: GradebookWriter (GradebookWriter.java)
  *
  * DESCRIPTION:
- * TODO INSERT DESCRIPTION HERE
- * 
+ * After modifying Student exam or homework scores in main UI, this enables the program
+ * to save the updated information back to 'gradebook.dat'. 
  *
  * COURSE AND PROJECT INFO
  * CSE205 Object Oriented Programming and Data Structures, Summer 2022 C-Session
@@ -28,21 +28,22 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
- * GradebookWriter inherits from PrintWriter and writes the gradebook info to the file whose name
- * is passed to the ctor.
+ * GradebookWriter inherits from PrintWriter and writes the gradebook info to
+ * the file whose name is passed to the ctor.
  */
 public class GradebookWriter extends PrintWriter {
 
     /**
-     * Call the super class ctor that takes a String as the argument, i.e, PrintWriter(String).
-     * The PrintWriter ctor opens the file named by pFname for writing. It will throw a
-     * FileNotFoundException if the file could not be opened for writing. We throw the exception
-     * here as well where it will eventually be caught in Main.exit() -- see SR 7.
+     * Call the super class ctor that takes a String as the argument, i.e,
+     * PrintWriter(String). The PrintWriter ctor opens the file named by pFname for
+     * writing. It will throw a FileNotFoundException if the file could not be
+     * opened for writing. We throw the exception here as well where it will
+     * eventually be caught in Main.exit() -- see SR 7.
      *
      * @param pFname The name of the output file to be opened for writing.
      */
     public GradebookWriter(String pFname) throws FileNotFoundException {
-    	super(pFname);
+        super(pFname);
     }
 
     /**
@@ -52,15 +53,9 @@ public class GradebookWriter extends PrintWriter {
      *
      */
     public void writeGradebook(Roster pRoster) {
-    	/*
-    	 * todo
-    	 * PSEUDOCODE:
-    	 * method writeGradebook(pRoster : Roster() : void
-    	 *     EnhancedFor each student in pRoster.getStudentList() Do
-    	 *         Call println(student)
-    	 *     End For
-    	 *     Call close()
-    	 * end writeGradebook
-    	 */
+        for (Student student : pRoster.getStudentList()) {
+            println(student);
+        }
+        close();
     }
 }

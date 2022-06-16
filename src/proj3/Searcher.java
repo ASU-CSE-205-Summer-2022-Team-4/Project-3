@@ -2,7 +2,7 @@
  * CLASS: Searcher (GradebookWriter.java)
  *
  * DESCRIPTION:
- * TODO INSERT DESCRIPTION HERE
+ * Implements recursive binary search in order to search student records for a given Student
  * 
  *
  * COURSE AND PROJECT INFO
@@ -21,10 +21,37 @@ package proj3;
 import java.util.ArrayList;
 
 public class Searcher {
-	// implement binary search algorithm: iterative (loop) or recursive
-	
-	public static int search(ArrayList<Student> pList, String pKey) {
-		//todo
-		return 0; // remove when a return value is implemented
-	}
+
+    /**
+     * Searches ArrayList of Students, returning index of Student or -1 if not found
+     * 
+     * @param pList ArrayList to be searched
+     * @param pKey  Name to search for
+     * @return Integer: Index of pKey in pList, or -1 if not found.
+     */
+    public static int search(ArrayList<Student> pList, String pKey) {
+        return recursiveBinarySearch(pList, pKey, 0, pList.size() - 1);
+    }
+
+    /**
+     * Recursive binary search algorithm.
+     * 
+     * @param pList List to be searched
+     * @param pKey  Item to be searched for
+     * @param pLow  Lower index bound to search
+     * @param pHigh Upper index bound to search
+     * @return Integer: Index of pKey in pList, or -1 if not found.
+     */
+    public static int recursiveBinarySearch(ArrayList<Student> pList, String pKey, int pLow, int pHigh) {
+        if (pLow > pHigh)
+            return -1;
+        int middle = (pLow + pHigh) / 2;
+        if (pKey.compareTo(pList.get(middle).getLastName()) == 0)
+            return middle;
+        else if (pKey.compareTo(pList.get(middle).getLastName()) < 0) {
+            return recursiveBinarySearch(pList, pKey, pLow, middle - 1);
+        } else {
+            return recursiveBinarySearch(pList, pKey, middle + 1, pHigh);
+        }
+    }
 }
