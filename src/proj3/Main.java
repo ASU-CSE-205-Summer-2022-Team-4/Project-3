@@ -82,6 +82,14 @@ public class Main {
     	 *     end try-catch
     	 * end exit
     	 */
+        try{
+            GradebookWriter gbWriter = new GradebookWriter("gradebook.dat");
+            gbWriter.writeGradebook(getRoster());
+            System.exit(0);
+        } catch (FileNotFoundException e){
+            getView().messageBox("Could not open gradebook.dat for writting. Exiting without saving.");
+            System.exit(-1);
+        }
     }
 
     /**
