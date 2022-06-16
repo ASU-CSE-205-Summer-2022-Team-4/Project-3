@@ -119,10 +119,9 @@ public class View extends JFrame implements ActionListener {
 		panelHomework.add(new JLabel("Homework"));
 		ArrayList<JTextField> mHomeworkText = new ArrayList<JTextField>();
 		for(int i = 0; i < 5; i++){
-			JTextField mHomeworkText = new JTextField(5);
+			mHomeworkTex[i] = new JTextField(5);
 			panelHomework.add(mHomeworkText[i]);
 		}
-		//JTextField mHomeworkText = new JTextField(5);
 
         // Create the exam panel which contains the "Exam: " label and the two exam text fields.
         // The pseudocode is omitted because this code is very similar to the code that creates the
