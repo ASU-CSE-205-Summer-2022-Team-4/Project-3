@@ -117,9 +117,9 @@ public class View extends JFrame implements ActionListener {
         //TODO ENTER CODE HERE
 		JPanel panelHomework = new JPanel(setLayout(new FlowLayout()));
 		panelHomework.add(new JLabel("Homework"));
-		ArrayList<JTextField> mHomeworkText = new ArrayList<JTextField>();
-		for(int i = 0; i < 5; i++){
-			mHomeworkTex[i] = new JTextField(5);
+		mHomeworkText = JTextField[Main.getNumHomeworks()];
+		for(int i = 0; i < Main.getNumHomeworks(); i++){
+			mHomeworkText[i] = JTextField(5);
 			panelHomework.add(mHomeworkText[i]);
 		}
 
@@ -128,6 +128,12 @@ public class View extends JFrame implements ActionListener {
         // panelHomework panel above.
         // Note: DO NOT HARDCODE THE NUMBER OF EXAMS
         //TODO ENTER CODE HERE
+		JPanel examPanel = new JPanel();
+		examPanel.add(new JLabel("Exam: "));
+		for(int i = 0; i < Main.getNumHomeworks(); i++){
+
+			examPanel.add(mHomeworkText);
+		}
 
         // PSEUDOCODE:
         // Create a JPanel named panelButtons using FlowLayout
@@ -250,6 +256,7 @@ public class View extends JFrame implements ActionListener {
     private void clearNumbers() {
     	// DO NOT HARCODE THE NUMBER OF HOMEWORKS AND EXAMS. Call the constant accessor methods in Main.
     	//TODO ENTER CODE HERE
+
     }
     
     /**
