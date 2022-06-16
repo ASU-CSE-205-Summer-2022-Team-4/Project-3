@@ -149,6 +149,17 @@ public class Main {
      *     end try-catch
      * end run
      */
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        View view = new View(this);
+        setView(view);
+        setView(new View((this)));
+        try {
+            GradebookReader gbReader = new GradebookReader("gradebook.dat");
+            gbReader.readGradebook();
+            setRoster();
+        } catch {
+
+        }
     }
 
     /**
