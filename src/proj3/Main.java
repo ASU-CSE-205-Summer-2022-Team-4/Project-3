@@ -151,14 +151,13 @@ public class Main {
      */
         JFrame.setDefaultLookAndFeelDecorated(true);
         View view = new View(this);
-        setView(view);
         setView(new View((this)));
         try {
             GradebookReader gbReader = new GradebookReader("gradebook.dat");
-            gbReader.readGradebook();
-            setRoster();
-        } catch {
-
+            setRoster(gbReader.readGradebook());
+        } catch (FileNotFoundException e){
+            getView().messageBox("Could not open gradebook.dat for reading. Exiting.");
+            System.exit(-1);
         }
     }
 
@@ -178,6 +177,7 @@ public class Main {
          *     call getRoster().getStudent(pLastName) and return what getStudent() returns
          * end search
          */
+        return getRoster().getStudent(pLastName);
     }
     	
     /**
