@@ -82,6 +82,14 @@ public class Main {
     	 *     end try-catch
     	 * end exit
     	 */
+        try{
+            GradebookWriter gbWriter = new GradebookWriter("gradebook.dat");
+            gbWriter.writeGradebook(getRoster());
+            System.exit(0);
+        } catch (FileNotFoundException e){
+            getView().messageBox("Could not open gradebook.dat for writting. Exiting without saving.");
+            System.exit(-1);
+        }
     }
 
     /**
@@ -141,6 +149,16 @@ public class Main {
      *     end try-catch
      * end run
      */
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        View view = new View(this);
+        setView(new View((this)));
+        try {
+            GradebookReader gbReader = new GradebookReader("gradebook.dat");
+            setRoster(gbReader.readGradebook());
+        } catch (FileNotFoundException e){
+            getView().messageBox("Could not open gradebook.dat for reading. Exiting.");
+            System.exit(-1);
+        }
     }
 
     /**
@@ -159,6 +177,7 @@ public class Main {
          *     call getRoster().getStudent(pLastName) and return what getStudent() returns
          * end search
          */
+        return getRoster().getStudent(pLastName);
     }
     	
     /**
