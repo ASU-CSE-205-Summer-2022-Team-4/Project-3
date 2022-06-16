@@ -118,7 +118,7 @@ public class View extends JFrame implements ActionListener {
 		JPanel panelHomework = new JPanel(setLayout(new FlowLayout()));
 		panelHomework.add(new JLabel("Homework"));
 		ArrayList<JTextField> mHomeworkText = new ArrayList<JTextField>();
-		for(int i = 0; i < mHomeworkText.size(); i++){
+		for(int i = 0; i < 5; i++){
 			JTextField mHomeworkText = new JTextField(5);
 			panelHomework.add(mHomeworkText[i]);
 		}
