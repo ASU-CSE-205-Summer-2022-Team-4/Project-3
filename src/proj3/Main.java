@@ -177,6 +177,7 @@ public class Main {
          *     call getRoster().getStudent(pLastName) and return what getStudent() returns
          * end search
          */
+        return getRoster().getStudent(pLastName);
     }
     	
     /**
