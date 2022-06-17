@@ -142,8 +142,16 @@ public class Student implements Comparable<Student> {
     	 *     hint: the last names are Strings and String already implements compareTo().
     	 * end compareTo
     	 */
-
-    	return 0;	// remove once implemented and a real value is returned
+        if(getLastName() < getLastName(pStudent)){
+            return -1;
+        }
+        if(getLastName().equals(getFirstName(pStudent))){
+            return 0;
+        }
+        if(getLastName() > getFirstName(pStudent)){
+            return 1;
+        }
+//    	return 0;	// remove once implemented and a real value is returned
     }
     
     /**
@@ -163,12 +171,13 @@ public class Student implements Comparable<Student> {
      * @return The exam score.
      *
      */
-    public int getExam(){
+    public int getExam(int pNum){
     	/*
     	 * Hint: Call getExamList() to get the ArrayList<Integer> object storing the exam scores.
     	 * Since that object is an ArrayList<Integer>, we next call the get(index) method to retrieve
     	 * the correct exam score.
     	 */
+        return getExamList().get(num);
     }
 
     /**
@@ -198,6 +207,7 @@ public class Student implements Comparable<Student> {
     	/*
     	 * todo
     	 */
+        return mLastName + ", " + mFirstName;
     }
     
     /**
@@ -210,12 +220,13 @@ public class Student implements Comparable<Student> {
      * @return The homework score.
      *
      */
-    public int getHomework() {
+    public int getHomework(int pNum) {
     	/*
     	 * Hint: Call getHomeworkList() to get the ArrayList<Integer> object storing the hw scores.
     	 * Since that object is an ArrayList<Integer>, we next call the get(index) method to retrieve
     	 * the correct hw score.
     	 */
+        return getHomeworkList().get(pNum);
     }
 
     /**
@@ -251,13 +262,14 @@ public class Student implements Comparable<Student> {
      * @pNum is the index into the list of exams, where 0 is the index of the first exam score.
      *
      */
-    public void setExam() {
+    public void setExam(int pNum) {
     	/*
     	 * 
     	 * See the hint for getExam(). This method will be similar, but rather than calling get()
     	 * on the ArrayList<Integer> object to get a score, we need to call set(index, value) method
     	 * to set the value in the ArrayList<Integer> at index 'index' to 'value'.
     	 */
+
     }
 
     /**
