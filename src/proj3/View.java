@@ -97,10 +97,10 @@ public class View extends JFrame implements ActionListener {
         // Make this View the action listener for the button
         // Add the button to the panel
         //TODO ENTER CODE HERE
-		JPanel panelSearch = new JPanel(setLayout(new FlowLayout());
+		JPanel panelSearch = new JPanel().setLayout(new FlowLayout());
 		panelSearch.add(new JLabel("Student Name"));
 		panelSearch.add(mStudentName(25));
-		mSearchButton("Search");
+		mSearchButton = new JButton("Search");
 		mSearchButton.addActionListener(this);
 		panelSearch.add(mSearchButton);
 
@@ -115,7 +115,7 @@ public class View extends JFrame implements ActionListener {
         // End For
         // Note: DO NOT HARDCODE THE NUMBER OF HOMEWORK ASSIGNMENTS
         //TODO ENTER CODE HERE
-		JPanel panelHomework = new JPanel(setLayout(new FlowLayout()));
+		JPanel panelHomework = new JPanel().setLayout(new FlowLayout());
 		panelHomework.add(new JLabel("Homework"));
 		mHomeworkText = JTextField[Main.getNumHomeworks()];
 		for(int i = 0; i < Main.getNumHomeworks(); i++){
@@ -133,7 +133,7 @@ public class View extends JFrame implements ActionListener {
 		mExamText = JTextField[Main.getNumExams()];
 		for(int i = 0; i < Main.getNumExams(); i++){
 			mExamText[i] = JTextField(3);
-			examPanel.add(mHomeworkText);
+			examPanel.add(mHomeworkText[i]);
 		}
 
         // PSEUDOCODE:
@@ -144,6 +144,16 @@ public class View extends JFrame implements ActionListener {
         // Repeat the three above statements for the Save button
         // Repeat the three above statements for the Exit button
         //TODO ENTER CODE HERE
+		JPanel panelButtons = new JPanel().setLayout(new FlowLayout());
+		mClearButton = new JButton("Clear");
+		mClearButton.addActionListener(this);
+		panelButtons.add(mClearButton);
+		mSaveButton = new JButton("Save");
+		mSaveButton.addActionListener(this);
+		panelButtons.add(mSaveButton);
+		mExitButton = new JButton("Clear");
+		mExitButton.addActionListener(this);
+		panelButtons.add(mExitButton);
 
         // PSEUDOCODE:
         // Create a JPanel named panelMain using a vertical BoxLayout
