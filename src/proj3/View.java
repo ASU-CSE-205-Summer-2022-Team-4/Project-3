@@ -261,6 +261,9 @@ public class View extends JFrame implements ActionListener {
     	 *     Set the current Student object in the Student class to null
     	 * end clear
     	 */
+		mStudentName.setText("");
+		clearNumbers();
+		Student.setCurrStudent(null);
     }
 
     /**
@@ -273,7 +276,7 @@ public class View extends JFrame implements ActionListener {
     private void clearNumbers() {
     	// DO NOT HARCODE THE NUMBER OF HOMEWORKS AND EXAMS. Call the constant accessor methods in Main.
     	//TODO ENTER CODE HERE
-		Main.get
+
 
     }
     
