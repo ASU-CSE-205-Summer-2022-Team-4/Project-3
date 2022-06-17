@@ -97,9 +97,11 @@ public class View extends JFrame implements ActionListener {
         // Make this View the action listener for the button
         // Add the button to the panel
         //TODO ENTER CODE HERE
-		JPanel panelSearch = new JPanel().setLayout(new FlowLayout());
-		panelSearch.add(new JLabel("Student Name"));
-		panelSearch.add(mStudentName(25));
+		JPanel panelSearch = new JPanel();
+		JLabel studentName = new JLabel("Studentn Name: ");
+		panelSearch.add(studentName);
+		mStudentName = new JTextField(25);
+		panelSearch.add(mStudentName);
 		mSearchButton = new JButton("Search");
 		mSearchButton.addActionListener(this);
 		panelSearch.add(mSearchButton);
@@ -115,11 +117,11 @@ public class View extends JFrame implements ActionListener {
         // End For
         // Note: DO NOT HARDCODE THE NUMBER OF HOMEWORK ASSIGNMENTS
         //TODO ENTER CODE HERE
-		JPanel panelHomework = new JPanel().setLayout(new FlowLayout());
-		panelHomework.add(new JLabel("Homework"));
+		JPanel panelHomework = new JPanel()
+		panelHomework.add(new JLabel("Homework: "));
 		mHomeworkText = JTextField[Main.getNumHomeworks()];
 		for(int i = 0; i < Main.getNumHomeworks(); i++){
-			mHomeworkText[i] = JTextField(5);
+			mHomeworkText[i] = new JTextField(5);
 			panelHomework.add(mHomeworkText[i]);
 		}
 
@@ -132,7 +134,7 @@ public class View extends JFrame implements ActionListener {
 		panelExam.add(new JLabel("Exam: "));
 		mExamText = JTextField[Main.getNumExams()];
 		for(int i = 0; i < Main.getNumExams(); i++){
-			mExamText[i] = JTextField(3);
+			mExamText[i] = new JTextField(3);
 			panelExam.add(mHomeworkText[i]);
 		}
 
@@ -144,7 +146,7 @@ public class View extends JFrame implements ActionListener {
         // Repeat the three above statements for the Save button
         // Repeat the three above statements for the Exit button
         //TODO ENTER CODE HERE
-		JPanel panelButtons = new JPanel().setLayout(new FlowLayout());
+		JPanel panelButtons = new JPanel();
 		mClearButton = new JButton("Clear");
 		mClearButton.addActionListener(this);
 		panelButtons.add(mClearButton);
@@ -162,7 +164,7 @@ public class View extends JFrame implements ActionListener {
         // Add panelExam to panelMain
         // Add panelButtons to panelMain
         //TODO ENTER CODE HERE
-		JPanel panelMain = new JPanel().setLayout(new BoxLayout(panelMain, BoxLayout.X_AXIS).);
+		JPanel panelMain = new JPanel().setLayout(new BoxLayout(panelMain, BoxLayout.Y_AXIS));
 		panelMain.add(panelSearch);
 		panelMain.add(panelHomework);
 		panelMain.add(panelExam);
@@ -182,7 +184,7 @@ public class View extends JFrame implements ActionListener {
         // ing the Exit button. This ensures that Main.exit() will be called so it will write the
         // student records back out to the gradebook database.
         //TODO ENTER CODE HERE
-		JFrame.DO_NOTHING_ON_CLOSE
+		JFrame.setDefaultLookAndFeelDecorated(DO_NOTHING_ON_CLOSE);
         
         // Add panelMain to the View.
         add(panelMain);
@@ -208,20 +210,7 @@ public class View extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent pEvent) {
-    	/*
-    	 * PSEUDOCOODE:
-    	 * method actionPerformed(pEvent : ActionEvent) : void
-    	 * If the source of the event was the Search button Then
-    	 *     Clear the numbers in the homework and exam fields
-    	 *     lastName = retrieve the text from the mStudentName text field
-    	 *     If lastName is the empty string Then
-    	 *         Call messageBox() to display "Please enter the student's last name."
-	     *     Else
-	     *         -- Main contains a method named search() which given the last name of a student
-	     *         -- will search the Roster for the student. search() either returns the Student
-	     *         -- object if found, or if there is no student with that last name in the Roster,
-	     *         -- then search() returns null.
-	     *         Call getMain().search(lastName) and pass the return value to Student.setCurrStudent()
+/*
 	     *         If the curr student object saved in the Student class is null Then
 	     *             Call messageBox() to display "Student not found. Try again."
 	     *         Else
@@ -241,6 +230,16 @@ public class View extends JFrame implements ActionListener {
 	     * End If
 	     * end actionPerformed
     	 */
+		if(pEvent.getActionCommand().equals("Search")){
+            clearNumbers();
+			String lastName = mStudentName.getText();
+			if(lastName == ""){
+				messageBox("Please enter the student's last name.");
+			} else {
+				Student.setCurrStudent(getMain().search(lastName));
+				if(Student.)
+			}
+        }
     }
 
     /**
@@ -274,6 +273,7 @@ public class View extends JFrame implements ActionListener {
     private void clearNumbers() {
     	// DO NOT HARCODE THE NUMBER OF HOMEWORKS AND EXAMS. Call the constant accessor methods in Main.
     	//TODO ENTER CODE HERE
+		Main.get
 
     }
     

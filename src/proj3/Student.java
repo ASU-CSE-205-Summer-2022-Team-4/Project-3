@@ -76,6 +76,10 @@ public class Student implements Comparable<Student> {
     	 *     create an ArrayList<Integer> and pass it off to setHomeworkList()
     	 * end Student()
     	 */
+        setFirstName(pFirstName);
+        setHomeworkList(pLastName);
+        setExamList(new ArrayList<Integer>());
+        setHomeworkList(new ArrayList<Integer>());
     }
 
     /**
@@ -92,6 +96,7 @@ public class Student implements Comparable<Student> {
     	 *     call add(pScore) on getExamList() to add a new exam score to the list of exam scores.
     	 * end addExam
     	 */
+        getExamList().add(pScore);
     }
 
     /**
@@ -110,6 +115,7 @@ public class Student implements Comparable<Student> {
     	 *     homework scores
     	 * end addHomework
     	 */
+        getHomeworkList().add(pScore);
     }
 
     /**
@@ -136,6 +142,7 @@ public class Student implements Comparable<Student> {
     	 *     hint: the last names are Strings and String already implements compareTo().
     	 * end compareTo
     	 */
+
     	return 0;	// remove once implemented and a real value is returned
     }
     
