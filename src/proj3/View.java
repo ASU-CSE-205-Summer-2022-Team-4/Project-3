@@ -128,12 +128,12 @@ public class View extends JFrame implements ActionListener {
         // panelHomework panel above.
         // Note: DO NOT HARDCODE THE NUMBER OF EXAMS
         //TODO ENTER CODE HERE
-		JPanel examPanel = new JPanel();
-		examPanel.add(new JLabel("Exam: "));
+		JPanel panelExam = new JPanel();
+		panelExam.add(new JLabel("Exam: "));
 		mExamText = JTextField[Main.getNumExams()];
 		for(int i = 0; i < Main.getNumExams(); i++){
 			mExamText[i] = JTextField(3);
-			examPanel.add(mHomeworkText[i]);
+			panelExam.add(mHomeworkText[i]);
 		}
 
         // PSEUDOCODE:
@@ -162,6 +162,11 @@ public class View extends JFrame implements ActionListener {
         // Add panelExam to panelMain
         // Add panelButtons to panelMain
         //TODO ENTER CODE HERE
+		JPanel panelMain = new JPanel().setLayout(new BoxLayout(panelMain, BoxLayout.X_AXIS).);
+		panelMain.add(panelSearch);
+		panelMain.add(panelHomework);
+		panelMain.add(panelExam);
+		panelMain.add(panelButtons);
 
         // Set the title of the View to whatever you want by calling setTitle()
         setTitle("Gred :: Gradebook Editor");
@@ -177,6 +182,7 @@ public class View extends JFrame implements ActionListener {
         // ing the Exit button. This ensures that Main.exit() will be called so it will write the
         // student records back out to the gradebook database.
         //TODO ENTER CODE HERE
+		JFrame.DO_NOTHING_ON_CLOSE
         
         // Add panelMain to the View.
         add(panelMain);
@@ -185,6 +191,7 @@ public class View extends JFrame implements ActionListener {
         // java.awt.Window() now to pack the View before displaying it. Windows and Linux users do
         // not need to do this, although if you do, it will not cause any problems.
         // ???
+		pack();
 
         // Now display the View by calling setVisible().
         setVisible(true);
